@@ -14,5 +14,7 @@ jobs:
                 
             - name: Executing shell Scripts
               run: |
+                pwd
+                ls -la
                 chmod +x ascii-script.sh
                 ./ascii-script.sh
