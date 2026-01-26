@@ -1,0 +1,38 @@
+name: Generate ASCII atwork
+
+on: push
+
+jobs:
+    first_job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repo
+              uses: actions/checkout@v6
+            
+            - name: Install cowsay Program
+              run: sudo apt-get install cowsay -y
+            
+            - name: List and Read Files
+              run: |
+                echo "My First Github Actions Job"
+                ls -ltra
+                cat README.md
+
+            - name: Generate ASCII atwork
+              run: cowsay -f dragon "Run for cover, I am a DRAGON .... RAWR" >> drgon.txt
+              
+            - name: Test File exists
+              run: grep -i "dragon" dragon.txt
+            
+            - name: Read File
+              run: cat dragon.txt
+
+
+            - name: List Repo Repo Files
+              run: ls -ltra
+
+            # - name: List files
+            #   run: ls
+
+            # - name: Read File
+            #   run: cat README.md
