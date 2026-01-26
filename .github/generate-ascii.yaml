@@ -11,14 +11,8 @@ jobs:
             
             - name: Install cowsay Program
               run: sudo apt-get install cowsay -y
-            
-            - name: List and Read Files
-              run: |
-                echo "My First Github Actions Job"
-                ls -ltra
-                cat README.md
 
-            - name: Generate ASCII atwork
+            - name: Execute cowsay CMD
               run: cowsay -f dragon "Run for cover, I am a DRAGON .... RAWR" >> drgon.txt
               
             - name: Test File exists
@@ -30,9 +24,4 @@ jobs:
 
             - name: List Repo Repo Files
               run: ls -ltra
-
-            # - name: List files
-            #   run: ls
-
-            # - name: Read File
-            #   run: cat README.md
+              
