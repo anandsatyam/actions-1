@@ -1,4 +1,4 @@
-name: Exploring Variables and Secrets 04
+name: Exploring Variables and Secrets 05
 
 on:
     workflow_dispatch:
@@ -46,4 +46,6 @@ jobs:
                 CONTAINER_REGISTRY: docker.io
                 DOCKER_USERNAME: satyam
                 IMAGE_NAME: github-actions-nginx
-            run: echo docker run -d -p 8080:80 $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
+            run: |
+                echo docker run -d -p 8080:80 $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
+                sleep 600s
