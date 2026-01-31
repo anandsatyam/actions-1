@@ -35,6 +35,7 @@ jobs:
           run: echo docker push $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
 
     deploy:
+#       timeout-minutes: 1
         needs: docker
         concurrency: 
             group: production-deployment
@@ -42,10 +43,11 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - name: Docker Run
+            timeout-minutes: 1
             env:
                 CONTAINER_REGISTRY: docker.io
                 DOCKER_USERNAME: satyam
                 IMAGE_NAME: github-actions-nginx
             run: |
                 echo docker run -d -p 8080:80 $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
-                sleep 600s
+                sleep 6000s
