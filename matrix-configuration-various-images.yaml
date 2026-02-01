@@ -1,0 +1,18 @@
+name: Matrix Configuration-01
+
+on: push
+
+jobs:
+    deploy-on-ubuntu:
+        strategy:
+          matrix:
+            os: [ubuntu-latest, ubuntu-20.04, windows-latest]
+            Images: [hello-world , alpine]
+        runs-on: ${{ matrix.os }}
+        steps:
+            - name: Echo Docker Details
+              run: docker info
+
+            - name: Run Images on ${{ matrix.os }}
+              run: docker run ${{ matrix.Images }}
+                
